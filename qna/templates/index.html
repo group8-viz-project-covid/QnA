@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br><br>
+{% for i in q %}
+<b>{{i.question}}</b><br><br>
+<p>posted by {{i.user}} at {{i.timestamp}}</p>
+<a href="{% url 'detail' i.id %}">Answer This Question.</a>
+<br><br><hr>
+{% endfor %}
+
+{% endblock %}
