@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br><br><br>
+
+<h4>{{object.question}}</h4><br>
+<br><br>
+published by <p>{{object.user}}</p> on {{object.timestamp}}<br>
+<br><hr>
+
+<a class="btn btn-primary btn-sm" href="{% url 'answer' object.id %}" role="button">Answer</a>
+<br><br>
+{% for i in question.answers.all %}
+
+<b>{{i.answer}}</b><br>
+<b>{{i.timestamp}}</b><br>
+submitted by {{i.user}}
+
+<hr>
+
+{% empty %}
+No Answers
+{% endfor %}
+
+{% endblock %}
